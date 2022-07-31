@@ -20,7 +20,7 @@
 
 # 5.下载代码
     git clone git@github.com:16211127/note.git              指定路径下载代码,如
-    git clone git@github.com:16211127/note.git yyy          在当前目录创建yyy并下载,记得cd yyy
+    git clone git@github.com:1211127/note.git yyy          在当前目录创建yyy并下载,记得cd yyy
     git clone git@github.com:16211127/note.git .            在当前目录下载
 
 # 6.一个.git上传到两个仓库

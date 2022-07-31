@@ -1,9 +1,16 @@
 # 背景
 * AJAX是浏览器上的功能
 * 浏览器在window上加了一个XMLHttpRequest函数
-* 用这个构造函数(类)可以构造一个对象,浏览器通过它发请求,收相应
+* 用这个构造函数(类)可以构造一个对象,浏览器通过它<strong>发请求,收响应</strong>
 
-# 准备一个服务器
+# ajax的四个步骤
+* 创建HttpRequest对象
+* 调用对象的open方法
+* 监听对象的onreadystatechange事件
+* 调用对象的send方法(发送请求)
+* 具体代码可以查阅mdn
+
+# 实战:准备一个服务器
 1.下载server.js,作为服务器
 ```
 var http = require('http')
@@ -14,7 +21,7 @@ var port = process.argv[2]
 if(!port){
   console.log('请指定端口号好不啦？\nnode server.js 8888 这样不会吗？')
   process.exit(1)
-}
+} 
 
 var server = http.createServer(function(request, response){
   var parsedUrl = url.parse(request.url, true)
@@ -92,25 +99,12 @@ var server = http.createServer(function(request, response){
 server.listen(port)
 console.log('监听 ' + port + ' 成功\n请用在空中转体720度然后用电饭煲打开 http://localhost:' + port)
 ```
+
 2.监听server.js
 ```
     node server.js 8888
 ```
 
-安装 yarn global add node-dev 
-使用node-dev 代替node可以自动重启(修改代码后更方便开发)
-
-```
-    node-dev server.js 8888
-```
-注:response.write(fs.readFileSync(`public/index.html`))
-
-# 五个挑战
-1. 加载CSS
-   * 创建一个HttpRequst对象
-   * 调用它的open方法
-   * 调用send方法发送请求
-2. 加载js
-3. 加载html
-4. 加载xml
-5. 加载json
+# ajax demo
+首先在server.js里建立对index.html style.css main.js 的请求和响应
+输入.../index.html ,请求index.html,引用了main.js 请求main.js
